@@ -2,6 +2,7 @@ import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import TestGenerator from "./pages/TestGenerator";
 import DocsHelper from "./pages/DocsHelper";
+import AiAssistant from "./pages/AiAssistant";
 
 function App() {
   const [page, setPage] = useState("dashboard");
@@ -21,18 +22,24 @@ function App() {
         >
           Test Generator
         </button>
-        <button
-  onClick={() => setPage("docs")}
-  className="rounded bg-slate-600 px-4 py-2 text-white"
->
-  Docs
-</button>
+        <button onClick={() => setPage("docs")}
+        className="rounded bg-slate-600 px-4 py-2 text-white"
+         >
+        Docs
+       </button>
+       <button onClick={() => setPage("ai")}
+       className="rounded bg-slate-500 px-4 py-2 text-white"
+        >
+       AI Assistant
+      </button>
+
       </div>
 
       <div className="p-6">
         {page === "dashboard" && <Dashboard />}
         {page === "test" && <TestGenerator />}
         {page === "docs" && <DocsHelper />}
+        {page === "ai" && <AiAssistant />}
       </div>
     </div>
   );
