@@ -8,6 +8,20 @@ export default function DocsHelper() {
           using ChatGPT and structured review guidelines.
         </p>
       </div>
+      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+  <h2 className="text-sm font-semibold text-slate-900">
+    System Architecture Overview
+  </h2>
+
+  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+    <li>Frontend: React + Vite</li>
+    <li>Styling: Tailwind CSS</li>
+    <li>Navigation: Client-side state routing</li>
+    <li>AI Simulation: Client-side logic (no backend API)</li>
+    <li>Workflow: User Input → Task Detection → Tool-based Response</li>
+  </ul>
+</div>
+
 
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-sm font-semibold text-slate-900">
