@@ -22,6 +22,18 @@ export default function DocsHelper() {
   </ul>
 </div>
 
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+  <h2 className="text-sm font-semibold text-slate-900">
+    AI-Assisted Documentation Workflow
+  </h2>
+
+  <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-700">
+    <li>Developer defines the documentation goal.</li>
+    <li>AI generates structured draft content.</li>
+    <li>Developer reviews and refines the output.</li>
+    <li>Final documentation is validated before commit.</li>
+  </ol>
+</div>
 
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-sm font-semibold text-slate-900">
