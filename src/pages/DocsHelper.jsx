@@ -2,75 +2,45 @@ export default function DocsHelper() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-slate-900">Documentation Helper</h1>
+        <h1 className="text-xl font-bold text-slate-900">Docs Helper</h1>
         <p className="mt-1 text-sm text-slate-600">
-          This module demonstrates AI-assisted documentation workflow
-          using ChatGPT and structured review guidelines.
+          Generate README / architecture documentation text (UI prototype).
         </p>
       </div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-  <h2 className="text-sm font-semibold text-slate-900">
-    System Architecture Overview
-  </h2>
 
-  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-    <li>Frontend: React + Vite</li>
-    <li>Styling: Tailwind CSS</li>
-    <li>Navigation: Client-side state routing</li>
-    <li>AI Simulation: Client-side logic (no backend API)</li>
-    <li>Workflow: User Input → Task Detection → Tool-based Response</li>
-  </ul>
-</div>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="text-sm font-semibold text-slate-900">Select document type</div>
+          <select className="mt-3 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700">
+            <option>README Section</option>
+            <option>Installation Steps</option>
+            <option>Architecture Overview</option>
+            <option>Component Documentation</option>
+          </select>
 
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-  <h2 className="text-sm font-semibold text-slate-900">
-    AI-Assisted Documentation Workflow
-  </h2>
+          <div className="mt-4 text-sm font-semibold text-slate-900">Short input</div>
+          <textarea
+            className="mt-3 h-36 w-full rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm outline-none focus:border-slate-400"
+            placeholder="Describe what you want to document..."
+          />
 
-  <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-700">
-    <li>Developer defines the documentation goal.</li>
-    <li>AI generates structured draft content.</li>
-    <li>Developer reviews and refines the output.</li>
-    <li>Final documentation is validated before commit.</li>
-  </ol>
-</div>
+          <button className="mt-3 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
+            Generate Markdown
+          </button>
+        </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h2 className="text-sm font-semibold text-slate-900">
-          AI Usage Guidelines (Dos & Don'ts)
-        </h2>
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="text-sm font-semibold text-slate-900">Markdown Preview</div>
+            <button className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+              Copy
+            </button>
+          </div>
 
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-          <li>Use AI to draft README sections and documentation outlines.</li>
-          <li>Always review AI output for technical accuracy.</li>
-          <li>Never copy AI-generated code blindly.</li>
-          <li>Validate edge cases and assumptions manually.</li>
-          <li>Keep documentation clear, concise, and structured.</li>
-        </ul>
-      </div>
-
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h2 className="text-sm font-semibold text-slate-900">
-          Example README Structure
-        </h2>
-
-        <pre className="mt-3 overflow-auto rounded-xl bg-slate-950 p-4 text-xs text-slate-100">
-{`## Overview
-This project demonstrates AI-assisted software development workflow.
-
-## Setup
-npm install
-npm run dev
-
-## Modules
-- Dashboard
-- AI Assistant
-- Test Generator
-- Docs Helper
-
-## Contribution
-Each member is responsible for a specific module.`}
-        </pre>
+          <pre className="mt-3 overflow-auto rounded-xl bg-slate-950 p-4 text-xs text-slate-100">
+{`## Overview\nThis prototype demonstrates an AI-assisted workflow for coding, testing, and documentation.\n\n## Key Features\n- AI Chat for assistance\n- Test Generator UI\n- Guidelines for responsible AI use\n`}
+          </pre>
+        </div>
       </div>
     </div>
   );
