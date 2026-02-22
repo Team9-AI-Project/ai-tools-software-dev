@@ -5,6 +5,7 @@ import TestGenerator from "./pages/TestGenerator";
 import DocsHelper from "./pages/DocsHelper";
 import AiAssistant from "./pages/AiAssistant";
 import Settings from "./pages/Settings";
+import Guidelines from "./pages/Guidelines";
 
 export default function App() {
   const [page, setPage] = useState("Dashboard");
@@ -29,6 +30,7 @@ export default function App() {
     if (page === "AI Chat") return <AiAssistant />;
     if (page === "Test Generator") return <TestGenerator />;
     if (page === "Docs Helper") return <DocsHelper />;
+    if (page === "Guidelines") return <Guidelines />;
     if (page === "Settings") return <Settings />;
 
     return <Dashboard goTo={(p) => setPage(p)} />;
