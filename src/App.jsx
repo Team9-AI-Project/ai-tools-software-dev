@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import TestGenerator from "./pages/TestGenerator";
 import DocsHelper from "./pages/DocsHelper";
 import AiAssistant from "./pages/AiAssistant";
+import Settings from "./pages/Settings";
 
 export default function App() {
   const [page, setPage] = useState("Dashboard");
@@ -16,6 +17,7 @@ export default function App() {
   }, [page, role]);
 
  function canAccess(pageName, roleName) {
+  if (pageName === "Settings") return roleName === "Admin";
   if (pageName === "Docs Helper") return roleName === "Doc Writer" || roleName === "Developer" || roleName === "Admin";
   if (pageName === "Test Generator") return roleName === "Tester" || roleName === "Developer" || roleName === "Admin";
   // Dashboard, AI Chat, Guidelines are open to all roles
@@ -27,6 +29,7 @@ export default function App() {
     if (page === "AI Chat") return <AiAssistant />;
     if (page === "Test Generator") return <TestGenerator />;
     if (page === "Docs Helper") return <DocsHelper />;
+    if (page === "Settings") return <Settings />;
 
     return <Dashboard goTo={(p) => setPage(p)} />;
   }

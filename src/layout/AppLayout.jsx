@@ -4,6 +4,7 @@ export default function AppLayout({ currentPage, onChangePage, role, onChangeRol
   "AI Chat",
   ...(role === "Tester" || role === "Developer" || role === "Admin" ? ["Test Generator"] : []),
   ...(role === "Doc Writer" || role === "Developer" || role === "Admin" ? ["Docs Helper"] : []),
+  ...(role === "Admin" ? ["Settings"] : []),
 ];
 
 
