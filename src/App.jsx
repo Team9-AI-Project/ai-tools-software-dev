@@ -1,48 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AppLayout from "./layout/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import TestGenerator from "./pages/TestGenerator";
 import DocsHelper from "./pages/DocsHelper";
 import AiAssistant from "./pages/AiAssistant";
 
-function App() {
-  const [page, setPage] = useState("dashboard");
+export default function App() {
+  const [page, setPage] = useState("Dashboard");
+  const [role, setRole] = useState("Developer");
 
-   return (
-    <div className="min-h-screen bg-slate-100">
-      <div className="flex gap-4 p-4">
-        <button
-          onClick={() => setPage("dashboard")}
-          className="rounded bg-slate-900 px-4 py-2 text-white"
-        >
-          Dashboard
-        </button>
-        <button
-          onClick={() => setPage("test")}
-          className="rounded bg-slate-700 px-4 py-2 text-white"
-        >
-          Test Generator
-        </button>
-        <button onClick={() => setPage("docs")}
-        className="rounded bg-slate-600 px-4 py-2 text-white"
-         >
-        Docs
-       </button>
-       <button onClick={() => setPage("ai")}
-       className="rounded bg-slate-500 px-4 py-2 text-white"
-        >
-       AI Assistant
-      </button>
+    useEffect(() => {
+    if (!canAccess(page, role)) {
+      setPage("Dashboard");
+    }
+  }, [page, role]);
 
-      </div>
+ function canAccess(pageName, roleName) {
+  if (pageName === "Docs Helper") return roleName === "Doc Writer" || roleName === "Developer" || roleName === "Admin";
+  if (pageName === "Test Generator") return roleName === "Tester" || roleName === "Developer" || roleName === "Admin";
+  // Dashboard, AI Chat, Guidelines are open to all roles
+  return true;
+}
+  
 
-      <div className="p-6">
-        {page === "dashboard" && <Dashboard />}
-        {page === "test" && <TestGenerator />}
-        {page === "docs" && <DocsHelper />}
-        {page === "ai" && <AiAssistant />}
-      </div>
-    </div>
+  function renderPage() {
+    if (page === "AI Chat") return <AiAssistant />;
+    if (page === "Test Generator") return <TestGenerator />;
+    if (page === "Docs Helper") return <DocsHelper />;
+
+    return <Dashboard goTo={(p) => setPage(p)} />;
+  }
+
+  return (
+    <AppLayout
+  currentPage={page}
+  onChangePage={(next) => {
+  if (canAccess(next, role)) setPage(next);
+  else setPage("Dashboard");
+}}
+
+  role={role}
+  onChangeRole={setRole}
+>
+      {renderPage()}
+    </AppLayout>
   );
 }
-
-export default App;
