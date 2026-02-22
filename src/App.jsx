@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import AppLayout from "./layout/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import TestGenerator from "./pages/TestGenerator";
+import CodeAssistant from "./pages/CodeAssistant";
 import DocsHelper from "./pages/DocsHelper";
 import AiAssistant from "./pages/AiAssistant";
 import Settings from "./pages/Settings";
 import Guidelines from "./pages/Guidelines";
+
 
 export default function App() {
   const [page, setPage] = useState("Dashboard");
@@ -21,6 +23,7 @@ export default function App() {
   if (pageName === "Settings") return roleName === "Admin";
   if (pageName === "Docs Helper") return roleName === "Doc Writer" || roleName === "Developer" || roleName === "Admin";
   if (pageName === "Test Generator") return roleName === "Tester" || roleName === "Developer" || roleName === "Admin";
+  if (pageName === "Code Assistant") return roleName === "Developer" || roleName === "Admin";
   // Dashboard, AI Chat, Guidelines are open to all roles
   return true;
 }
@@ -30,6 +33,7 @@ export default function App() {
     if (page === "AI Chat") return <AiAssistant />;
     if (page === "Test Generator") return <TestGenerator />;
     if (page === "Docs Helper") return <DocsHelper />;
+    if (page === "Code Assistant") return <CodeAssistant />;
     if (page === "Guidelines") return <Guidelines />;
     if (page === "Settings") return <Settings />;
 

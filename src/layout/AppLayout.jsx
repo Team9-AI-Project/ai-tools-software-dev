@@ -3,6 +3,7 @@ export default function AppLayout({ currentPage, onChangePage, role, onChangeRol
   "Dashboard",
   "AI Chat",
   ...(role === "Tester" || role === "Developer" || role === "Admin" ? ["Test Generator"] : []),
+  ...(role === "Developer" || role === "Admin" ? ["Code Assistant"] : []),
   ...(role === "Doc Writer" || role === "Developer" || role === "Admin" ? ["Docs Helper"] : []),
   "Guidelines",
   ...(role === "Admin" ? ["Settings"] : []),
